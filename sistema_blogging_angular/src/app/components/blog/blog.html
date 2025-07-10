@@ -1,1 +1,40 @@
-<p>blog works!</p>
+<section class="contenedor">
+  <h2>PUBLICAR NUEVA NOTICIA</h2>
+ 
+  <form [formGroup]="reactiveForm" (ngSubmit)="cargaDatos( )">
+  
+  <input type="text" name="titulo" placeholder="Titulo"
+      formControlName="titulo"/>
+    <input
+      type="text"
+      name="imagen"
+      placeholder="URL de la imagen"
+      formControlName="imagen"
+    />
+    <textarea
+      name="texto"
+      placeholder="Texto de la noticia"
+      formControlName="texto"
+    ></textarea>
+
+    <input type="date" name="fecha" formControlName="fecha" />
+
+    <button type="submit">Publicar</button>
+
+    <p class="error" >Todos los campos son obligatorios</p>
+
+
+  </form>
+
+
+
+
+  <hr />
+  <h2>LISTADO DE NOTICIAS</h2>
+  <div>
+    <h3>noticia titulo</h3>
+    <img src="" alt="imagen" />
+    <p>noticia texto</p>
+    <p><strong>Fecha:</strong>noticia fecha</p>
+  </div>
+</section>
