@@ -18,6 +18,11 @@ import { BrowserModule } from '@angular/platform-browser';
 export class Blog {
   reactiveForm: FormGroup;
   mostrarError = false;
+  noticiaTitulo: string = '';
+  noticiaImagen: string = '';
+  noticiaTexto: string = '';
+  noticiaFecha: string = '';
+
 
   constructor() {
     this.reactiveForm = new FormGroup(
@@ -32,6 +37,15 @@ export class Blog {
   }
 
   cargaDatos() {
-    console.log(this.reactiveForm.value);
-  }
+  const datos = this.reactiveForm.value;
+
+  this.noticiaTitulo = datos.titulo;
+  this.noticiaImagen = datos.imagen;
+  this.noticiaTexto = datos.texto;
+  this.noticiaFecha = datos.fecha;
+
+  console.log(datos);
+}
+
+
 }

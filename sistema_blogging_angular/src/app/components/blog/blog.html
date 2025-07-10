@@ -3,18 +3,16 @@
 
   <form [formGroup]="reactiveForm" (ngSubmit)="cargaDatos()">
     <div>
-      
       <input
         type="text"
         name="titulo"
         placeholder="Titulo"
         formControlName="titulo"
       />
-      <label for="titulo" ></label>
     </div>
 
     <input
-      type="text"
+      type="url"
       name="imagen"
       placeholder="URL de la imagen"
       formControlName="imagen"
@@ -26,19 +24,33 @@
       formControlName="texto"
     ></textarea>
 
-    <input type="date" name="fecha" formControlName="fecha" />
+    <input
+      type="date"
+      name="fecha"
+      formControlName="fecha"
+    />
 
-    <button type="submit" [disabled]="!reactiveForm.valid">Publicar</button>
+    <button type="submit" >Publicar</button>
 
-    <p class="error">Todos los campos son obligatorios</p>
+    <!--<p class="error">Todos los campos son obligatorios</p>-->
   </form>
 
   <hr />
   <h2>LISTADO DE NOTICIAS</h2>
   <div>
-    <h3>noticia titulo</h3>
-    <img src="" alt="imagen" />
-    <p>noticia texto</p>
-    <p><strong>Fecha:</strong>noticia fecha</p>
+    <div>
+      <h3>{{ noticiaTitulo }}</h3>
+    </div>
+
+    <div class="imagenes">
+      <img src="{{ noticiaImagen }}" alt="imagen" />
+    </div>
+
+    <div>
+      <p>{{ noticiaTexto }}</p>
+    </div>
+    <div>
+      <p><strong>Fecha:</strong>{{ noticiaFecha }}</p>
+    </div>
   </div>
 </section>
