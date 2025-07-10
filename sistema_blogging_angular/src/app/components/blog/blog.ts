@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import {
   FormControl,
@@ -11,7 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './blog.html',
   styleUrl: './blog.css',
 })
@@ -23,7 +24,6 @@ export class Blog {
   noticiaTexto: string = '';
   noticiaFecha: string = '';
 
-
   constructor() {
     this.reactiveForm = new FormGroup(
       {
@@ -34,18 +34,30 @@ export class Blog {
       },
       []
     );
+
+    this.reactiveForm.valueChanges.subscribe(() => {
+      if (this.reactiveForm.valid) {
+        this.mostrarError = false;
+      }
+    });
   }
 
   cargaDatos() {
-  const datos = this.reactiveForm.value;
+    if (this.reactiveForm.invalid) {
+      this.mostrarError = true;
+      return;
+    }
 
-  this.noticiaTitulo = datos.titulo;
-  this.noticiaImagen = datos.imagen;
-  this.noticiaTexto = datos.texto;
-  this.noticiaFecha = datos.fecha;
+    const datos = this.reactiveForm.value;
 
-  console.log(datos);
-}
+    this.noticiaTitulo = datos.titulo;
+    this.noticiaImagen = datos.imagen;
+    this.noticiaTexto = datos.texto;
+    this.noticiaFecha = datos.fecha;
 
+    console.log(datos);
 
+    this.reactiveForm.reset();
+    this.mostrarError = false;
+  }
 }

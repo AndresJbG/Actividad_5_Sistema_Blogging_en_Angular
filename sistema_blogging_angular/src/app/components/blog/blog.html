@@ -24,15 +24,11 @@
       formControlName="texto"
     ></textarea>
 
-    <input
-      type="date"
-      name="fecha"
-      formControlName="fecha"
-    />
+    <input type="date" name="fecha" formControlName="fecha" />
 
-    <button type="submit" >Publicar</button>
+    <button type="submit">Publicar</button>
 
-    <!--<p class="error">Todos los campos son obligatorios</p>-->
+    <p class="error" *ngIf="mostrarError">Todos los campos son obligatorios</p>
   </form>
 
   <hr />
