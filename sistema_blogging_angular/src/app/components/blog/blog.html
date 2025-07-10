@@ -33,20 +33,21 @@
 
   <hr />
   <h2>LISTADO DE NOTICIAS</h2>
-  <div>
+  <div *ngFor="let noticia of noticias">
     <div>
-      <h3>{{ noticiaTitulo }}</h3>
+      <h3>{{ noticia.titulo }}</h3>
     </div>
 
     <div class="imagenes">
-      <img src="{{ noticiaImagen }}" alt="imagen" />
+      <img [src]="noticia.imagen" alt="imagen" />
     </div>
 
     <div>
-      <p>{{ noticiaTexto }}</p>
+      <p>{{ noticia.texto }}</p>
     </div>
+
     <div>
-      <p><strong>Fecha:</strong>{{ noticiaFecha }}</p>
+      <p><strong>Fecha:</strong>{{ noticia.fecha }}</p>
     </div>
   </div>
 </section>

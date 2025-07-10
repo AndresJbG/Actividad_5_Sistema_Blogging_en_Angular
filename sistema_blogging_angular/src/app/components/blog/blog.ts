@@ -23,6 +23,7 @@ export class Blog {
   noticiaImagen: string = '';
   noticiaTexto: string = '';
   noticiaFecha: string = '';
+  noticias: any[] = [];
 
   constructor() {
     this.reactiveForm = new FormGroup(
@@ -50,14 +51,18 @@ export class Blog {
 
     const datos = this.reactiveForm.value;
 
-    this.noticiaTitulo = datos.titulo;
-    this.noticiaImagen = datos.imagen;
-    this.noticiaTexto = datos.texto;
-    this.noticiaFecha = datos.fecha;
+    this.noticias.push({
+      titulo: datos.titulo,
+      imagen: datos.imagen,
+      texto: datos.texto,
+      fecha: datos.fecha,
 
-    console.log(datos);
+    });
+
 
     this.reactiveForm.reset();
     this.mostrarError = false;
+
+    console.log(this.noticias);
   }
 }
