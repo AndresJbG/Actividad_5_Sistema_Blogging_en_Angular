@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   FormsModule,
-  NgForm,
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
